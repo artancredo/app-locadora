@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Cadastro de Filmes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #filmeForm="ngForm" novalidate>
+    <ion-item>
+      <ion-label position="floating">Nome *:</ion-label>
+      <ion-input type="text" [(ngModel)]="filme.nome" name="nome" maxlength="100" required pattern="[a-zA-Z ]+">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Lançamento: </ion-label>
+      <ion-datetime display-format="DD/MM/YYYY"placeholder="Lançamento" [(ngModel)]="filme.dataLancamento" name="dataLancamento" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sinópse:</ion-label>
+      <ion-input type="text" [(ngModel)]="filme.sinopse" name="sinopse" maxlength="20" >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Imagem:</ion-label>
+      <ion-input type="text" [(ngModel)]="filme.imagem" name="imagem" maxlength="200" >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-item>
+        <ion-label position="floating">Autor:</ion-label>
+        <ion-select placeholder="Selecione o autor" [(ngModel)]="filme.autor" name="autor">
+          
+          <ion-select-option *ngFor="let autor of getListaAutores()" [value]="autor">
+            {{ autor.nome }} {{ autor.nacionalidade }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-item>
+        <ion-label position="floating">Gênero:</ion-label>
+        <ion-select placeholder="Selecione o genero" [(ngModel)]="filme.genero" name="genero">
+          
+          <ion-select-option *ngFor="let genero of getListaGeneros()" [value]="genero">
+            {{ genero.descricao }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" color="secondary">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "app-locadora",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

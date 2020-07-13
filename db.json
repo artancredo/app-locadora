@@ -1,0 +1,162 @@
+{
+  "cliente": [
+    {
+      "id": 1,
+      "cpf": "08054318960",
+      "nome": "Alan Biazoto",
+      "idade": 29
+    },
+    {
+      "id": 2,
+      "cpf": "12345678909",
+      "nome": "Andre Tancredo",
+      "idade": 25
+    },
+    {
+      "cpf": "12345678900",
+      "nome": "João da Silva",
+      "idade": "38",
+      "id": 3
+    }
+  ],
+  "genero": [
+    {
+      "descricao": "Aventura",
+      "id": 1
+    },
+    {
+      "descricao": "Comédia",
+      "id": 2
+    },
+    {
+      "descricao": "Terror",
+      "id": 3
+    }
+  ],
+  "autor": [
+    {
+      "nome": "Woody Allen",
+      "dtnasc": "1935-12-02T00:00:00-03:00",
+      "nacionalidade": "Estados Unidos",
+      "img": "https://br.web.img2.acsta.net/pictures/15/05/20/18/02/040297.jpg",
+      "obs": "Woody Allen, nome artístico de Allan Stewart Königsberg, é um cineasta, roteirista, escritor, ator e músico norte-americano. Allen trabalhou como um escritor de comédia na década de 1950, escrevendo piadas e roteiros para televisão e publicação de vários livros de peças curtas de humor",
+      "id": 1
+    },
+    {
+      "nome": "Steven Spielberg",
+      "dtnasc": "1946-12-19T10:08:59.238-03:00",
+      "nacionalidade": "Estados Unidos",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/67/Steven_Spielberg_by_Gage_Skidmore.jpg",
+      "obs": "Steven Allan Spielberg KBE OMRI é um premiado cineasta, produtor cinematográfico, roteirista e empresário norte-americano. Spielberg é o diretor que tem mais filmes na lista dos 100 Melhores Filmes Americanos de Todos os Tempos, feita pelo American Film Institute",
+      "id": 2
+    },
+    {
+      "nome": "Quentin Tarantino",
+      "dtnasc": "1963-03-28T00:00:00-03:00",
+      "nacionalidade": "Estados Unidos",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg",
+      "obs": "Quentin Jerome Tarantino é um cineasta, roteirista, produtor, ator e diretor de fotografia norte-americano. É vencedor de dois Oscars de melhor roteiro original e foi eleito o 19° maior diretor de cinema dos últimos 25 anos segundo o levantamento da Quartz através do Metacritic",
+      "id": 3
+    }
+  ],
+  "filme": [
+    {
+      "id": 1,
+      "nome": "Missão Impossivel",
+      "dtlanc": "1963-03-28T00:00:00-03:00",
+      "sinopse": "Um filme de ação",
+      "img": "https://abrilveja.files.wordpress.com/2018/07/entretenimento-missao-impossivel-20180726-001.jpg?quality=70&strip=info&resize=680,453",
+      "autor": {
+        "nome": "Woody Allen",
+        "dtnasc": "1935-12-02T00:00:00-03:00",
+        "nacionalidade": "Estados Unidos",
+        "img": "https://br.web.img2.acsta.net/pictures/15/05/20/18/02/040297.jpg",
+        "obs": "Woody Allen, nome artístico de Allan Stewart Königsberg, é um cineasta, roteirista, escritor, ator e músico norte-americano. Allen trabalhou como um escritor de comédia na década de 1950, escrevendo piadas e roteiros para televisão e publicação de vários livros de peças curtas de humor",
+        "id": 1
+      },
+      "genero": {
+        "descricao": "Aventura",
+        "id": 1
+      }
+    },
+    {
+      "nome": "O Pimentinha",
+      "dtlanc": "2020-05-20T00:53:01.630Z",
+      "sinopse": "Um filme de comédia.",
+      "img": "https://br.web.img3.acsta.net/medias/nmedia/18/91/08/28/20128492.jpg",
+      "autor": {
+        "nome": "Woody Allen",
+        "dtnasc": "1935-12-02T00:00:00-03:00",
+        "nacionalidade": "Estados Unidos",
+        "img": "https://br.web.img2.acsta.net/pictures/15/05/20/18/02/040297.jpg",
+        "obs": "Woody Allen, nome artístico de Allan Stewart Königsberg, é um cineasta, roteirista, escritor, ator e músico norte-americano. Allen trabalhou como um escritor de comédia na década de 1950, escrevendo piadas e roteiros para televisão e publicação de vários livros de peças curtas de humor",
+        "id": 1
+      },
+      "genero": {
+        "descricao": "Comédia",
+        "id": 2
+      },
+      "id": 2
+    }
+  ],
+  "locacao": [
+    {
+      "cliente": {
+        "id": 1,
+        "cpf": "08054318960",
+        "nome": "Alan Biazoto",
+        "idade": 29
+      },
+      "filme": {
+        "id": 1,
+        "nome": "Missão Impossivel",
+        "dtlanc": "1963-03-28T00:00:00-03:00",
+        "sinopse": "Um filme de ação",
+        "img": "https://abrilveja.files.wordpress.com/2018/07/entretenimento-missao-impossivel-20180726-001.jpg?quality=70&strip=info&resize=680,453",
+        "autor": {
+          "nome": "Woody Allen",
+          "dtnasc": "1935-12-02T00:00:00-03:00",
+          "nacionalidade": "Estados Unidos",
+          "img": "https://br.web.img2.acsta.net/pictures/15/05/20/18/02/040297.jpg",
+          "obs": "Woody Allen, nome artístico de Allan Stewart Königsberg, é um cineasta, roteirista, escritor, ator e músico norte-americano. Allen trabalhou como um escritor de comédia na década de 1950, escrevendo piadas e roteiros para televisão e publicação de vários livros de peças curtas de humor",
+          "id": 1
+        },
+        "genero": {
+          "descricao": "Aventura",
+          "id": 1
+        }
+      },
+      "dataInicio": "2020-05-20",
+      "dataFim": "2020-05-21",
+      "valor": 12,
+      "id": 1
+    },
+    {
+      "cliente": {
+        "id": 2,
+        "cpf": "12345678909",
+        "nome": "Andre Tancredo",
+        "idade": 25
+      },
+      "filme": {
+        "nome": "O pimentinha",
+        "dtlanc": "2020-05-19",
+        "sinopse": {},
+        "img": "https://br.web.img3.acsta.net/medias/nmedia/18/91/08/28/20128492.jpg",
+        "autor": {
+          "nome": "Woody Allen",
+          "dtnasc": "1935-12-02T00:00:00-03:00",
+          "nacionalidade": "Estados Unidos",
+          "img": "https://br.web.img2.acsta.net/pictures/15/05/20/18/02/040297.jpg",
+          "obs": "Woody Allen, nome artístico de Allan Stewart Königsberg, é um cineasta, roteirista, escritor, ator e músico norte-americano. Allen trabalhou como um escritor de comédia na década de 1950, escrevendo piadas e roteiros para televisão e publicação de vários livros de peças curtas de humor",
+          "id": 1
+        },
+        "id": 2
+      },
+      "dataInicio": "2020-05-20T00:24:02.740Z",
+      "dataFim": "2020-05-20T00:24:02.740Z",
+      "valor": 1,
+      "id": 2
+    }
+  ]
+}

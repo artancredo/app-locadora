@@ -1,0 +1,1 @@
+export const BASE_API = "http://localhost:8081/api-locadora/rest";

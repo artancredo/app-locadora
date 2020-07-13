@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Cadastro de Autores</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #autorForm="ngForm" novalidate>
+    <ion-item>
+      <ion-label position="floating">Nome *:</ion-label>
+      <ion-input type="text" [(ngModel)]="autor.nome" name="nome" maxlength="100" required pattern="[a-zA-Z ]+">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nascimento</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY"placeholder="Nascimento" [(ngModel)]="autor.dataNascimento" name="dataNascimento" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-item>
+        <ion-label position="floating">Nascionalidade:</ion-label>
+        <ion-select placeholder="Selecione o país" [(ngModel)]="autor.nacionalidade" name="nacionalidade" maxlength="20" >
+          <ion-select-option value="Brasil">Brasil</ion-select-option>
+          <ion-select-option value="Paraguay">Paraguay</ion-select-option>
+          <ion-select-option value="Estados Unidos">Estados Unidos</ion-select-option>
+          <ion-select-option value="Inglaterra">Inglaterra</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Img:</ion-label>
+      <ion-input type="text" [(ngModel)]="autor.imagem" name="imagem" maxlength="200" >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-textarea rows="6" name="observacao" [(ngModel)]="autor.observacao" maxlength="500" ></ion-textarea>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" color="secondary">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>

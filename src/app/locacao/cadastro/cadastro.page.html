@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Cadastro de Locações</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #locacaoForm="ngForm" novalidate>
+    <ion-item>
+      <ion-item>
+        <ion-label position="floating">Cliente:</ion-label>
+        <ion-select placeholder="Selecione o cliente" [(ngModel)]="locacao.cliente" name="cliente">
+          
+          <ion-select-option *ngFor="let cliente of getListaClientes()" [value]="cliente">
+            {{ cliente.nome }} {{ cliente.nacionalidade }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-item>
+        <ion-label position="floating">Filme:</ion-label>
+        <ion-select placeholder="Selecione o filme" [(ngModel)]="locacao.filme" name="filme">
+          
+          <ion-select-option *ngFor="let filme of getListaFilmes()" [value]="filme">
+            {{ filme.nome }} {{ filme.nacionalidade }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data locação: </ion-label>
+      <ion-datetime display-format="DD/MM/YYYY"placeholder="Data locação" [(ngModel)]="locacao.dataInicio" name="dataInicio" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data Entrega: </ion-label>
+      <ion-datetime display-format="DD/MM/YYYY"placeholder="Data entrega" [(ngModel)]="locacao.dataFim" name="dataFim" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor *:</ion-label>
+      <ion-input type="number" [(ngModel)]="locacao.valor" name="valor">
+      </ion-input>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" color="secondary">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>

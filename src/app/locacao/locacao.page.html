@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Locação</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides>
+    <ion-slide *ngFor='let locacao of locacoes'>
+      <ion-card>
+        <img src="{{locacao.filme.img}}" />
+        <ion-card-header>
+          <ion-card-title>{{locacao.filme.nome}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{locacao.cliente.nome}}<br>
+          <ion-button (click)="confirmarExclusao(locacao)" color="secondary">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+          <ion-button [routerLink]="['/locacao/cadastro', locacao.id]" color="secondary">
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+          </ion-button>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-fab vertical="bottom" horizontal="start">
+    <ion-fab-button color="secondary" [routerLink]="['/home']">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button color="secondary" [routerLink]="['/locacao', 'cadastro']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
