@@ -32,10 +32,9 @@
     <ion-item>
       <ion-item>
         <ion-label position="floating">Autor:</ion-label>
-        <ion-select placeholder="Selecione o autor" [(ngModel)]="filme.autor" name="autor">
-          
-          <ion-select-option *ngFor="let autor of getListaAutores()" [value]="autor">
-            {{ autor.nome }} {{ autor.nacionalidade }}
+        <ion-select placeholder="Selecione o autor" [(ngModel)]="autorSelecao" name="autorSelecao">
+          <ion-select-option *ngFor="let autor of getListaAutores()" [value]="autor.id">
+            {{autor.nome}}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -43,13 +42,17 @@
     <ion-item>
       <ion-item>
         <ion-label position="floating">Gênero:</ion-label>
-        <ion-select placeholder="Selecione o genero" [(ngModel)]="filme.genero" name="genero">
-          
-          <ion-select-option *ngFor="let genero of getListaGeneros()" [value]="genero">
-            {{ genero.descricao }}
+        <ion-select placeholder="Selecione o genero" [(ngModel)]="generoSelecao" name="generoSelecao">
+          <ion-select-option *ngFor="let genero of getListaGeneros()" [value]="genero.id">
+            {{genero.descricao}}
           </ion-select-option>
         </ion-select>
       </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor R$:</ion-label>
+      <ion-input type="number" [(ngModel)]="filme.valor" name="valor">
+      </ion-input>
     </ion-item>
 
     <ion-fab vertical="bottom" horizontal="end">

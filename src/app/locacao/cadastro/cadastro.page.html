@@ -13,9 +13,9 @@
     <ion-item>
       <ion-item>
         <ion-label position="floating">Cliente:</ion-label>
-        <ion-select placeholder="Selecione o cliente" [(ngModel)]="locacao.cliente" name="cliente">
+        <ion-select placeholder="Selecione o cliente" [(ngModel)]="clienteSelecao" name="clienteSelecao">
           
-          <ion-select-option *ngFor="let cliente of getListaClientes()" [value]="cliente">
+          <ion-select-option *ngFor="let cliente of getListaClientes()" [value]="cliente.id">
             {{ cliente.nome }} {{ cliente.nacionalidade }}
           </ion-select-option>
         </ion-select>
@@ -24,9 +24,9 @@
     <ion-item>
       <ion-item>
         <ion-label position="floating">Filme:</ion-label>
-        <ion-select placeholder="Selecione o filme" [(ngModel)]="locacao.filme" name="filme">
+        <ion-select placeholder="Selecione o filme" [(ngModel)]="filmeSelecao" name="filmeSelecao">
           
-          <ion-select-option *ngFor="let filme of getListaFilmes()" [value]="filme">
+          <ion-select-option *ngFor="let filme of getListaFilmes()" [value]="filme.id">
             {{ filme.nome }} {{ filme.nacionalidade }}
           </ion-select-option>
         </ion-select>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵCodegenComponentFactoryResolver } from '@angular/core';
 import { Locacao } from 'src/app/models/locacao.interface';
 import { Filme } from 'src/app/models/filme.interface';
 import { FilmeService } from 'src/app/services/filme.service';
@@ -18,10 +18,10 @@ export class CadastroPage implements OnInit {
   locacao : Locacao;
   
   filmes : Filme[];
-  filme : Filme;
+  filmeSelecao : String;
 
   clientes : Cliente[];
-  cliente : Cliente;
+  clienteSelecao : String;
 
   constructor(
     private filmeService: FilmeService,
@@ -32,12 +32,12 @@ export class CadastroPage implements OnInit {
     private loadingController:LoadingController
 
   ) { 
-    this.filme = undefined;
-    this.cliente = undefined;
+    this.filmeSelecao = undefined;
+    this.clienteSelecao = undefined;
     this.listar();
     this.locacao = { 
       cliente: { cpf: '', nome:'', idade: null },
-      filme: { nome:'',dataLancamento: new Date,sinopse:null,imagem:'',autor: { nome:'',dataNascimento: new Date,nacionalidade:'',imagem:'',observacao:null},genero:{ descricao:'' }},
+      filme: { nome:'',dataLancamento: new Date,sinopse:null,imagem:'',autor: { nome:'',dataNascimento: new Date,nacionalidade:'',imagem:'',observacao:null},genero:{ descricao:'' }, valor: 0},
       dataInicio: new Date,
       dataFim: new Date,
       valor: 0
@@ -67,13 +67,20 @@ export class CadastroPage implements OnInit {
       
       this.locacaoService.getLocacao(id).subscribe((locacao) => {
         this.locacao = locacao;
-        this.filme = this.filmes.find(item => item.id == locacao.filme.id);
-        this.cliente = this.clientes.find(item => item.id == locacao.cliente.id);
+        console.log("locacao: " + JSON.stringify(locacao));
+        setTimeout(() => {
+          this.filmeSelecao = locacao.filme.id;
+          this.clienteSelecao = locacao.cliente.id;
+          }, 1000);
       });
     } 
   }
 
   async salvar() {
+
+    this.locacao.filme = this.filmes.find(item => item.id == this.filmeSelecao);
+    this.locacao.cliente = this.clientes.find(item => item.id == this.clienteSelecao);
+
 
     this.locacaoService
       .salvar(this.locacao)

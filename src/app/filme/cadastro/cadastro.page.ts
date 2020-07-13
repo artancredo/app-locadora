@@ -19,10 +19,10 @@ export class CadastroPage implements OnInit {
   filme : Filme;
 
   autores : Autor[];
-  autor : Autor;
+  autorSelecao : String;
   
   generos : Genero[];
-  genero : Genero;
+  generoSelecao : String;
   
 
   constructor(
@@ -34,10 +34,10 @@ export class CadastroPage implements OnInit {
     private loadingController:LoadingController
 
   ) { 
-    this.autor = undefined;
-    this.genero = undefined;
+    this.autorSelecao = undefined;
+    this.generoSelecao = undefined;
     this.listarAutores();
-    this.filme = { nome:'',dataLancamento: new Date,sinopse:null,imagem:'',autor: { nome:'',dataNascimento: new Date,nacionalidade:'',imagem:'',observacao:null},genero:{ descricao:'' }};
+    this.filme = { nome:'',dataLancamento: new Date,sinopse:null,imagem:'',autor: { nome:'',dataNascimento: new Date,nacionalidade:'',imagem:'',observacao:null},genero:{ descricao:'' }, valor: 0};
 
   }
 
@@ -64,13 +64,17 @@ export class CadastroPage implements OnInit {
       
       this.filmeService.getFilme(id).subscribe((filme) => {
         this.filme = filme;
-        this.autor = this.autores.find(item => item.id == filme.autor.id);
-        this.genero = this.generos.find(item => item.id == filme.genero.id);
+        setTimeout(() => {
+          this.autorSelecao = filme.autor.id;
+          this.generoSelecao = filme.genero.id;
+          }, 1000);
       });
     } 
   }
 
   async salvar() {
+    this.filme.autor = this.autores.find(item => item.id == this.autorSelecao);
+    this.filme.genero = this.generos.find(item => item.id == this.generoSelecao);
 
     this.filmeService
       .salvar(this.filme)

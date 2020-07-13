@@ -9,4 +9,5 @@ export interface Filme {
     imagem: string;
     autor: Autor;
     genero: Genero;
+    valor: number;
 }

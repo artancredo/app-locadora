@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Locacao } from '../models/locacao.interface';
 import { LocacaoService } from '../services/locacao.service';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { Filme } from '../models/filme.interface';
+import { FilmeService } from '../services/filme.service';
 
 @Component({
   selector: 'app-locacao',
@@ -11,11 +13,13 @@ import { AlertController, LoadingController } from '@ionic/angular';
 export class LocacaoPage implements OnInit {
 
   locacoes: Locacao[];
+  filmes: Filme[];
 
   constructor(
     private locacaoService: LocacaoService,
     private alertController: AlertController,
-    private loadingController:LoadingController
+    private loadingController:LoadingController,
+    private filmeService: FilmeService
   ) { }
 
   ngOnInit() {
@@ -29,7 +33,18 @@ export class LocacaoPage implements OnInit {
     const busyLoader = await this.loadingController.create({message:'Carregando..'});
     busyLoader.present();
     this.locacoes = await this.locacaoService.getLocacaos().toPromise();
+    this.filmes = await this.filmeService.getFilmes().toPromise();
     busyLoader.dismiss();
+  }
+
+  async detalhes(filmes: Filme){
+    const alerta = await this.alertController.create({
+      header: `${filmes.nome}`,
+      subHeader: `${filmes.autor.nome}`,
+      message: `<img src="${filmes.imagem}"></img>`,
+      buttons: ['Sair']
+    });
+    alerta.present();
   }
 
   async confirmarExclusao(locacao: Locacao) {
