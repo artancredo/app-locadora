@@ -12,8 +12,8 @@
         <h2>Nome: {{locacao.cliente.nome}}</h2>
         <h3>Total: {{locacao.valor}}</h3>
         <h3>Entrega: {{locacao.dataFim | date: 'dd/MM/yyyy'}}</h3>
-        <ion-chip *ngFor='let filmes of locacao.filme'>
-          <ion-label (click)="detalhes(filmes)">{{filmes.nome}}</ion-label>
+        <ion-chip>
+          <ion-label (click)="detalhes(locacao.filme)">{{locacao.filme.nome}}</ion-label>
         </ion-chip>
         </ion-label>
       <ion-button (click)="confirmarExclusao(locacao)" color="secondary">

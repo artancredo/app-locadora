@@ -67,7 +67,7 @@ export class CadastroPage implements OnInit {
         setTimeout(() => {
           this.autorSelecao = filme.autor.id;
           this.generoSelecao = filme.genero.id;
-          }, 1000);
+          }, 500);
       });
     } 
   }

@@ -67,7 +67,7 @@ export class CadastroPage implements OnInit {
       
       this.locacaoService.getLocacao(id).subscribe((locacao) => {
         this.locacao = locacao;
-        console.log("locacao: " + JSON.stringify(locacao));
+        
         setTimeout(() => {
           this.filmeSelecao = locacao.filme.id;
           this.clienteSelecao = locacao.cliente.id;
